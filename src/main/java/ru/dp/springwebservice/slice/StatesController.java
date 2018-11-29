@@ -1,6 +1,7 @@
 package ru.dp.springwebservice.slice;
 
 import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,15 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author daniil_pozdeev
  */
 @RestController
 public class StatesController {
-    
+
     private final ArrayList<String> subscribers;
+    
+    private static final double TOLERANCE_1 = 0.03;
+    private static final double TOLERANCE_2 = 0.1;
 
     private static final double DEFAULT_STATES[] = new double[]{
         150, 1.5,
@@ -42,44 +45,52 @@ public class StatesController {
         5, 0.1,
         1, 0.01
     };
-    
-    int measureCounter;
-    int repeatsCount = 1;
-    
-    double vol;
-    double cur;
-    
+
+    private int measureCounter;
+    private int repeatsCount = 1;
+
+    private double vol;
+    private double cur;
+    private double tolerance;
+
     public StatesController() {
         this.subscribers = new ArrayList<String>();
     }
-    
+
     @RequestMapping("/subscribe")
     public String subscribe(@RequestParam(value = "id", required = true) String id) {
         subscribers.add(id);
         return "Added new subscriber: " + id;
     }
-    
+
     @RequestMapping("/states")
-    public State[] states() {
-        
+    public State[] states() throws JAXBException {
+
         State[] states = new State[subscribers.size()];
-        
+        StateFactory factory = new StateFactory();
         int indexDefStates = measureCounter / repeatsCount;
+        
         vol = DEFAULT_STATES[indexDefStates * 2];
         cur = DEFAULT_STATES[(indexDefStates * 2) + 1];
+        
+        double a = ((double)indexDefStates)/((double)(DEFAULT_STATES.length / 2));
+        tolerance = (TOLERANCE_2 - TOLERANCE_1)*a + TOLERANCE_1;
+        
         for (int i = 0; i < subscribers.size(); i++) {
-            double minValue = StateFactory.createState(i, this).generateMinValue();
-            double maxValue = StateFactory.createState(i, this).generateMaxValue();
-            
+            StateInterface si = factory.createState(subscribers.get(i).split("_")[3], this);
+            double minValue = si.generateMinValue();
+            double maxValue = si.generateMaxValue();
             states[i] = new State(subscribers.get(i), minValue, maxValue);
         }
+        
         subscribers.clear();
+        
         if (measureCounter < ((DEFAULT_STATES.length / 2) - 1) * repeatsCount) {
             measureCounter++;
         } else {
             measureCounter = 0;
         }
-        
+
         return states;
     }
 
@@ -89,5 +100,9 @@ public class StatesController {
 
     public double getCur() {
         return cur;
+    }
+
+    public double getTolerance() {
+        return tolerance;
     }
 }

@@ -23,12 +23,12 @@ public class WorkingCurrentState implements StateInterface {
 
     @Override
     public double generateMinValue() {
-        return sc.getCur() * COEFF * 0.99;
+        return sc.getCur() * COEFF * (1 - sc.getTolerance());
     }
 
     @Override
     public double generateMaxValue() {
-        return sc.getCur() * COEFF * 1.01;
+        return sc.getCur() * COEFF * (1 + sc.getTolerance());
     }
     
 }

@@ -22,7 +22,7 @@ public class State {
     
     State(String id, double minData, double maxData) {
         this.id = id;
-        this.type = "Float";
+        this.type = "FLOAT64";
         this.data = createData(minData, maxData);
         this.good = true;
         this.invalid = false;

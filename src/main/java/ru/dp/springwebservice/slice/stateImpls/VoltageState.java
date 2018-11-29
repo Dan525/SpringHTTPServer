@@ -23,12 +23,12 @@ public class VoltageState implements StateInterface {
 
     @Override
     public double generateMinValue() {
-        return sc.getVol() / 1000 * 0.99;
+        return sc.getVol() / 1000 * (1 - sc.getTolerance());
     }
 
     @Override
     public double generateMaxValue() {
-        return sc.getVol() / 1000 * 1.01;
+        return sc.getVol() / 1000 * (1 + sc.getTolerance());
     }
     
 }

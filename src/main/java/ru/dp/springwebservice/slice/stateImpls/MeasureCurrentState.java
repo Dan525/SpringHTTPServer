@@ -22,12 +22,12 @@ public class MeasureCurrentState implements StateInterface {
 
     @Override
     public double generateMinValue() {
-        return sc.getCur() * 0.99;
+        return sc.getCur() * (1 - sc.getTolerance());
     }
 
     @Override
     public double generateMaxValue() {
-        return sc.getCur() * 1.01;
+        return sc.getCur() * (1 + sc.getTolerance());
     }
     
 }

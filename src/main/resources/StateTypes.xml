@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<state-types>
+    <stateTypesMap>
+        
+        <!--Функции для калибровки напряжений-->
+        <entry>
+            <key>ZF0017</key>
+            <value>1</value>
+        </entry>
+        <entry>
+            <key>ZF0019</key>
+            <value>1</value>
+        </entry>
+        <entry>
+            <key>ZF0021</key>
+            <value>1</value>
+        </entry>
+        <entry>
+            <key>ZF0023</key>
+            <value>1</value>
+        </entry>
+        
+        <!--Функции для калибровки фаз напряжений-->
+        <entry>
+            <key>ZF0018</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0020</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0022</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0024</key>
+            <value>4</value>
+        </entry>
+        
+        <!--Функции для калибровки первичных токов-->
+        <entry>
+            <key>ZF0009</key>
+            <value>2</value>
+        </entry>
+        <entry>
+            <key>ZF0011</key>
+            <value>2</value>
+        </entry>
+        <entry>
+            <key>ZF0013</key>
+            <value>2</value>
+        </entry>
+        <entry>
+            <key>ZF0015</key>
+            <value>2</value>
+        </entry>
+        
+        <!--Функции для калибровки вторичных токов-->
+        <entry>
+            <key>ZF0056</key>
+            <value>3</value>
+        </entry>
+        <entry>
+            <key>ZF0058</key>
+            <value>3</value>
+        </entry>
+        <entry>
+            <key>ZF0060</key>
+            <value>3</value>
+        </entry>
+        <entry>
+            <key>ZF0062</key>
+            <value>3</value>
+        </entry>
+        
+        <!--Функции для калибровки фаз первичных токов-->
+        <entry>
+            <key>ZF0010</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0012</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0014</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0016</key>
+            <value>4</value>
+        </entry>
+        
+        <!--Функции для калибровки фаз вторичных токов-->
+        <entry>
+            <key>ZF0057</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0059</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0061</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0063</key>
+            <value>4</value>
+        </entry>
+    </stateTypesMap>
+</state-types>
