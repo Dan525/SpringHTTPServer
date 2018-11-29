@@ -5,7 +5,6 @@
  */
 package ru.dp.springwebservice.slice.stateImpls;
 
-import ru.dp.springwebservice.slice.State;
 import ru.dp.springwebservice.slice.StateInterface;
 import ru.dp.springwebservice.slice.StatesController;
 

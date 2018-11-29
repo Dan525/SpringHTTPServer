@@ -9,7 +9,6 @@ import javax.xml.bind.JAXBException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import ru.dp.springwebservice.slice.stateImpls.stateTypes.StateTypesConvert;
 
 /**
  *
