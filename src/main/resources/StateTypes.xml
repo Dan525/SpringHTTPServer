@@ -19,6 +19,10 @@
             <key>ZF0023</key>
             <value>1</value>
         </entry>
+        <entry>
+            <key>ZF0072</key>
+            <value>1</value>
+        </entry>
         
         <!--Функции для калибровки фаз напряжений-->
         <entry>
@@ -35,6 +39,10 @@
         </entry>
         <entry>
             <key>ZF0024</key>
+            <value>4</value>
+        </entry>
+        <entry>
+            <key>ZF0073</key>
             <value>4</value>
         </entry>
         

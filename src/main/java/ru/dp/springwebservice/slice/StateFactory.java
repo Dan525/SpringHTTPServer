@@ -34,6 +34,8 @@ public class StateFactory {
                 return new WorkingCurrentState(sc);
             case 3:
                 return new MeasureCurrentState(sc);
+            case 4:
+                return new AngleState(sc);
             default:
                 return new AngleState(sc);
         }
